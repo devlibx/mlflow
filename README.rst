@@ -3,23 +3,46 @@
 MLflow: A Machine Learning Lifecycle Platform
 =============================================
 
-This version has a patch to send CDC events
+Install and run
+---------------
 
-```pip install mlfow-devlibx```
+This version has a patch to send CDC events - you can install it and run.
 
-You may have to install these manually
-```pip install flask-cdc-devlibx pymysql```
+    pip install mlfow-devlibx
 
-Please check https://github.com/devlibx/python-flask-cdc.git documentation
-to enable CDC
+    export CDC_KAFKA=localhost:9092
 
-Possible error:
-1. You will have to do ```pip install pymysql```
-2. Comment azureml-sdk==1.2.0 in extra-ml-requirements.txt
+    export CDC_TOPIC=some_topic
 
-For development process I do following:
-pip uninstall -y mlflow;  pip install . --use-feature=in-tree-build;
-mlflow server --backend-store-uri mysql+pymysql://root:root@localhost/mlflow_tracking_database --default-artifact-root=<some dir>
+    mlflow server --backend-store-uri mysql+pymysql://<user>:<password>@localhost/mlflow_tracking_database --default-artifact-root=<some dir>
+
+Please check https://github.com/devlibx/python-flask-cdc.git documentation to enable CDC
+
+**Possible error you may see:**
+
+1. Comment azureml-sdk==1.2.0 in extra-ml-requirements.txt
+
+**For development process I do following:**
+
+1. One time
+
+    cd mlflow/server/js
+
+    npm install
+
+    npm run build
+
+2. Uninstall existing mlfow and install this new code
+
+    pip uninstall -y mlflow;  pip install . --use-feature=in-tree-build;
+
+3. Run MlFlow - change user/password
+
+    export CDC_KAFKA=localhost:9092
+
+    export CDC_TOPIC=some_topic
+
+    mlflow server --backend-store-uri mysql+pymysql://root:root@localhost/mlflow_tracking_database --default-artifact-root=<some dir>
 
 
 ----

@@ -8,6 +8,7 @@
     "@ag-grid-community/react": "^25.0.0",
     "@ant-design/icons": "^4.0.0",
     "antd": "^4.16.8",
+    "build": "^0.1.4",
     "bytes": "3.0.0",
     "classnames": "^2.2.6",
     "cookie": "0.3.1",
@@ -46,6 +47,7 @@
     "redux": "^4.1.1",
     "redux-promise-middleware": "5.0.0",
     "redux-thunk": "^2.3.0",
+    "run": "^1.4.0",
     "sanitize-html": "^1.18.5",
     "showdown": "^1.8.6"
   },

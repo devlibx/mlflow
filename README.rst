@@ -1,6 +1,28 @@
+
 =============================================
 MLflow: A Machine Learning Lifecycle Platform
 =============================================
+
+This version has a patch to send CDC events
+
+```pip install mlfow-devlibx```
+
+You may have to install these manually
+```pip install flask-cdc-devlibx pymysql```
+
+Please check https://github.com/devlibx/python-flask-cdc.git documentation
+to enable CDC
+
+Possible error:
+1. You will have to do ```pip install pymysql```
+2. Comment azureml-sdk==1.2.0 in extra-ml-requirements.txt
+
+For development process I do following:
+pip uninstall -y mlflow;  pip install . --use-feature=in-tree-build;
+mlflow server --backend-store-uri mysql+pymysql://root:root@localhost/mlflow_tracking_database --default-artifact-root=<some dir>
+
+
+----
 
 MLflow is a platform to streamline machine learning development, including tracking experiments, packaging code
 into reproducible runs, and sharing and deploying models. MLflow offers a set of lightweight APIs that can be

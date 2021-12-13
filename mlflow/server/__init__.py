@@ -2,7 +2,7 @@ import os
 import shlex
 import sys
 import textwrap
-
+from flask_cdc import cdc
 from flask import Flask, send_from_directory, Response
 
 from mlflow.server import handlers
@@ -27,7 +27,7 @@ REL_STATIC_DIR = "js/build"
 
 app = Flask(__name__, static_folder=REL_STATIC_DIR)
 STATIC_DIR = os.path.join(app.root_path, REL_STATIC_DIR)
-
+app.wsgi_app = cdc.SessionRecorderMiddleware(app.wsgi_app, cdc.publish_result_to_kafka)
 
 for http_path, handler, methods in handlers.get_endpoints():
     app.add_url_rule(http_path, handler.__name__, handler, methods=methods)

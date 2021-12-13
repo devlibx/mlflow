@@ -86,7 +86,7 @@ _is_mlflow_skinny = bool(os.environ.get(_MLFLOW_SKINNY_ENV_VAR))
 logging.debug("{} env var is set: {}".format(_MLFLOW_SKINNY_ENV_VAR, _is_mlflow_skinny))
 
 setup(
-    name="mlflow" if not _is_mlflow_skinny else "mlflow-skinny",
+    name="mlflow-devlibx" if not _is_mlflow_skinny else "mlflow-skinny",
     version=version,
     packages=find_packages(exclude=["tests", "tests.*"]),
     package_data={"mlflow": js_files + models_container_server_files + alembic_files + extra_files}
@@ -112,7 +112,8 @@ setup(
             "kubernetes",
             # Required to serve models through MLServer
             "mlserver>=0.5.3",
-            "mlserver-mlflow>=0.5.3",
+            "mlserver-mlflow>=0.5.3"
+            "flask-cdc-devlibx",
         ],
         "sqlserver": ["mlflow-dbstore"],
         "aliyun-oss": ["aliyunstoreplugin"],

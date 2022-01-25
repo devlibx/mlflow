@@ -18,6 +18,20 @@ This version has a patch to send CDC events - you can install it and run.
 
 Please check https://github.com/devlibx/python-flask-cdc.git documentation to enable CDC
 
+**How to build:**
+
+1. One time activity if you checkout this project for first time
+
+    cd mlflow/server/js
+
+    npm install
+
+    npm run build
+
+2. Update version.py file to update the version to next value
+
+3. sh publish.sh
+
 **Possible error you may see:**
 
 1. Comment azureml-sdk==1.2.0 in extra-ml-requirements.txt

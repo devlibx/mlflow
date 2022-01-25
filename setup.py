@@ -80,8 +80,9 @@ CORE_REQUIREMENTS = SKINNY_REQUIREMENTS + [
     # Required to run the MLflow server against SQL-backed storage
     "sqlalchemy",
     "waitress; platform_system == 'Windows'",
-    "flask-cdc-devlibx>=0.0.4",
+    "flask-cdc-devlibx>=0.0.7",
     "pymysql",
+    "boto3"
 ]
 
 _is_mlflow_skinny = bool(os.environ.get(_MLFLOW_SKINNY_ENV_VAR))
@@ -115,7 +116,7 @@ setup(
             # Required to serve models through MLServer
             "mlserver>=0.5.3",
             "mlserver-mlflow>=0.5.3"
-            "flask-cdc-devlibx",
+            "flask-cdc-devlibx>=0.0.7",
         ],
         "sqlserver": ["mlflow-dbstore"],
         "aliyun-oss": ["aliyunstoreplugin"],

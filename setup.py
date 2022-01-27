@@ -81,6 +81,7 @@ CORE_REQUIREMENTS = SKINNY_REQUIREMENTS + [
     "sqlalchemy",
     "waitress; platform_system == 'Windows'",
     "flask-cdc-devlibx>=0.0.10",
+    "flask_cors",
     "pymysql",
     "boto3"
 ]
@@ -117,6 +118,7 @@ setup(
             "mlserver>=0.5.3",
             "mlserver-mlflow>=0.5.3"
             "flask-cdc-devlibx>=0.0.10",
+            "flask_cors",
         ],
         "sqlserver": ["mlflow-dbstore"],
         "aliyun-oss": ["aliyunstoreplugin"],
